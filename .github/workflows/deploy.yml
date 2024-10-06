@@ -3,7 +3,7 @@ name: Deploy Bokeh App
 on:
   push:
     branches:
-      - master  # Triggers when code is pushed to the master branch
+      - master  # Triggers on push to the master branch
 
 jobs:
   deploy:
@@ -16,14 +16,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'  # Set your Python version
+          python-version: '3.9'  # Set your desired Python version
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Ensure you have a requirements.txt file with Bokeh, yfinance, etc.
+          python -m pip install --upgrade pip  # Ensure pip is up-to-date
+          pip install -r requirements.txt      # Install dependencies from requirements.txt
 
-      - name: Deploy to Render/Railway
+      - name: Deploy the App
         run: |
-          # Command to run your Bokeh app
-          bokeh serve --show app.py  # Replace app.py with your script file
+          # Command to deploy your app, example for Render:
+          bokeh serve --show app.py            # Replace app.py with your actual file
+

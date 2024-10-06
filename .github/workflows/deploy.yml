@@ -23,8 +23,8 @@ jobs:
           python -m pip install --upgrade pip  # Ensure pip is up-to-date
           pip install -r requirements.txt      # Install dependencies from requirements.txt
 
-      - name: Deploy the App
+      - name: Deploy to Render/Railway
         run: |
           # Command to deploy your app, example for Render:
-          bokeh serve --show app.py            # Replace app.py with your actual file
+          bokeh serve --show main.py            # Replace app.py with your actual file
 
